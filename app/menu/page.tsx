@@ -4,6 +4,7 @@ import { useState } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { MenuSidebar } from "@/components/menu-sidebar"
+import { MobileCategoryNav } from "@/components/mobile-category-nav"
 import { MenuItemCard } from "@/components/menu-item-card"
 import { categories, products } from "@/lib/menu-data"
 import { AnimatedSection } from "@/components/animated-section"
@@ -20,7 +21,7 @@ export default function MenuPage() {
       <Header />
 
       <div className="flex flex-1 mx-auto w-full relative">
-        {/* Sidebar */}
+        {/* Sidebar for Desktop */}
         <MenuSidebar
           categories={categories}
           activeCategory={activeCategory}
@@ -28,9 +29,17 @@ export default function MenuPage() {
         />
 
         {/* Main Content */}
-        <main className="flex-1 p-4 md:p-8 lg:p-10 transition-colors duration-300">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection animation="fade-up" className="mb-10">
+        <main className="flex-1 w-full transition-colors duration-300">
+
+          {/* Mobile Category Navigation (Sticky) */}
+          <MobileCategoryNav
+            categories={categories}
+            activeCategory={activeCategory}
+            onSelectCategory={setActiveCategory}
+          />
+
+          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pb-10">
+            <AnimatedSection animation="fade-up" className="mb-8 md:mb-10 mt-4 md:mt-8">
               <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-3 capitalize tracking-tight">
                 {categories.find(c => c.id === activeCategory)?.name || "Menu"}
               </h1>

@@ -28,11 +28,11 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-4 flex-shrink-0 group">
               <div className="relative h-20 w-auto transition-transform duration-500 ease-in-out group-hover:scale-125 group-hover:rotate-2">
                 <Image
-                  src="/logo-alanda.png"
+                  src="/logo_alanda-2.png"
                   alt="Lecheria Alanda Logo"
                   width={200}
                   height={80}
-                  className="h-full w-auto object-contain drop-shadow-lg"
+                  className="h-full w-auto object-contain drop-shadow-lg invert dark:invert-0"
                   priority
                 />
               </div>
