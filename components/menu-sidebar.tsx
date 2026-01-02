@@ -18,7 +18,7 @@ interface MenuSidebarProps {
 
 export function MenuSidebar({ categories, activeCategory, onSelectCategory }: MenuSidebarProps) {
     return (
-        <aside className="w-64 bg-card border-r border-border h-full min-h-screen hidden lg:block sticky top-20 overflow-y-auto custom-scrollbar transition-colors duration-300">
+        <aside className="w-64 bg-white border-r border-border h-full min-h-screen hidden lg:block sticky top-20 overflow-y-auto custom-scrollbar transition-colors duration-300">
             <div className="p-6">
                 <AnimatedSection animation="fade-right" className="mb-8">
                     <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-700 px-2 flex items-center gap-2">

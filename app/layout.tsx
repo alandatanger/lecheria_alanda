@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description: "Produits laitiers artisanaux et jus naturels frais à Tanger. Qualité naturelle et fraîcheur du jour.",
   generator: "v0.app",
   icons: {
-    icon: "/icon.jpeg",
-    shortcut: "/icon.jpeg",
-    apple: "/icon.jpeg",
+    icon: "/favicon_alanda.ico",
+    shortcut: "/favicon_alanda.ico",
+    apple: "/favicon_alanda.ico",
   },
 }
 
