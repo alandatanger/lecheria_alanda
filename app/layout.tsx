@@ -5,6 +5,8 @@ import { Geist, Geist_Mono, Dancing_Script } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import { CookieBanner } from "@/components/cookie-banner"
+import { GoogleAnalytics } from "@/components/google-analytics"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -39,6 +41,8 @@ export default function RootLayout({
         >
           {children}
           <Analytics />
+          <CookieBanner />
+          <GoogleAnalytics gaId="G-XXXXXXXXXX" />
         </ThemeProvider>
       </body>
     </html>
