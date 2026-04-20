@@ -1,9 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Script from "next/script"
 import { Geist, Geist_Mono, Dancing_Script } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/components/language-provider"
 import "./globals.css"
 import { CookieBanner } from "@/components/cookie-banner"
 import { GoogleAnalytics } from "@/components/google-analytics"
@@ -11,6 +11,7 @@ import { GoogleAnalytics } from "@/components/google-analytics"
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const dancingScript = Dancing_Script({ subsets: ["latin"], variable: "--font-handwriting" })
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
   title: "Lecheria Alanda - Produits Laitiers & Jus Naturels",
@@ -39,10 +40,12 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="theme"
         >
-          {children}
-          <Analytics />
-          <CookieBanner />
-          <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+          <LanguageProvider>
+            {children}
+            <Analytics />
+            <CookieBanner />
+            <GoogleAnalytics gaId={googleAnalyticsId} />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

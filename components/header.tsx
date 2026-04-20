@@ -2,13 +2,17 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Phone, MapPin } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import { ThemeLanguageBar } from "@/components/theme-language-bar"
+import { useLanguage } from "@/components/language-provider"
+import { commonTranslations } from "@/lib/translations"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { language } = useLanguage()
+  const t = commonTranslations.header[language]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,28 +48,28 @@ export default function Header() {
                 href="/"
                 className="px-2 py-2 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-medium text-sm tracking-[0.2em] uppercase relative group"
               >
-                ALANDA
+                {t.home}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-500 to-amber-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/menu"
                 className="px-2 py-2 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-medium text-sm tracking-[0.2em] uppercase relative group"
               >
-                MENU
+                {t.menu}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-500 to-amber-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/galerie"
                 className="px-2 py-2 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-medium text-sm tracking-[0.2em] uppercase relative group"
               >
-                GALERIE
+                {t.gallery}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-500 to-amber-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/contact"
                 className="px-2 py-2 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-medium text-sm tracking-[0.2em] uppercase relative group"
               >
-                CONTACT
+                {t.contact}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-500 to-amber-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <div className="ml-4 pl-4 border-l border-slate-300 dark:border-white/10 h-8 flex items-center">
@@ -91,28 +95,28 @@ export default function Header() {
                 className="block px-4 py-3 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors font-medium text-center uppercase tracking-widest"
                 onClick={() => setIsOpen(false)}
               >
-                ALANDA
+                {t.home}
               </Link>
               <Link
                 href="/menu"
                 className="block px-4 py-3 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors font-medium text-center uppercase tracking-widest"
                 onClick={() => setIsOpen(false)}
               >
-                MENU
+                {t.menu}
               </Link>
               <Link
                 href="/galerie"
                 className="block px-4 py-3 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors font-medium text-center uppercase tracking-widest"
                 onClick={() => setIsOpen(false)}
               >
-                GALERIE
+                {t.gallery}
               </Link>
               <Link
                 href="/contact"
                 className="block px-4 py-3 text-slate-800 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors font-medium text-center uppercase tracking-widest"
                 onClick={() => setIsOpen(false)}
               >
-                CONTACT
+                {t.contact}
               </Link>
             </nav>
           )}
